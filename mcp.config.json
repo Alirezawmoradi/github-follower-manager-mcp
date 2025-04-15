@@ -1,0 +1,65 @@
+{
+  "name": "github-follow-manager",
+  "version": "1.0.0",
+  "description": "Tools for checking who follows you on GitHub, unfollowing users, and analyzing follow relationships.",
+  "tools": [
+    {
+      "name": "initialize",
+      "description": "Initialize the GitHub API service with a personal access token",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "GitHub personal access token with appropriate scopes"
+          }
+        },
+        "required": ["token"]
+      }
+    },
+    {
+      "name": "get-current-user",
+      "description": "Get the currently authenticated GitHub user",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "get-not-following-back",
+      "description": "Get the list of GitHub users who don't follow you back",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "unfollow-users",
+      "description": "Unfollow specific GitHub users",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "usernames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of GitHub usernames to unfollow"
+          }
+        },
+        "required": ["usernames"]
+      }
+    },
+    {
+      "name": "get-follow-relationships",
+      "description": "Get detailed follow relationships for all users you follow",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ],
+  "transport": {
+    "type": "stdio"
+  }
+} 
