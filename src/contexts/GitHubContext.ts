@@ -1,4 +1,8 @@
-import { GitHubUser, FollowRelationship } from '../models/GitHubUser';
+import {
+  GitHubUser,
+  FollowRelationship,
+  UnfollowResult,
+} from "../models/GitHubUser";
 
 export interface GitHubContext {
   getCurrentUser(): Promise<GitHubUser>;
@@ -6,5 +10,6 @@ export interface GitHubContext {
   getFollowing(): Promise<GitHubUser[]>;
   getFollowRelationships(): Promise<FollowRelationship[]>;
   getNotFollowingBack(): Promise<GitHubUser[]>;
-  unfollowUser(username: string): Promise<boolean>;
+  unfollowUser(username: string): Promise<UnfollowResult>;
+  unfollowUsers(username: string[]): Promise<UnfollowResult[]>;
 }
